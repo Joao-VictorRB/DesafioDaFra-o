@@ -8,8 +8,8 @@ def cabeçalho():
     print('[1] Soma (+)\n[2] Subtração (-)\n[3] Multiplicação (*)\n[4] Divisão (/)')
     print("--------------------------------------------------")
     print("Escolha uma operação: ", end='')
-       
 
+       
 def condicional(opcao):
     if opcao == 1:
         valor_fracao = fr1 + fr2
@@ -27,6 +27,12 @@ def condicional(opcao):
 cabeçalho()
 operacao = int(input())
 
+while True:
+    if operacao < 1 or operacao > 4:
+        cabeçalho()    
+        operacao = int(input())
+    else:
+        break
 
 print('--------------------1° FRAÇÃO---------------------')
 n1 = int(input("Enter first number: "))
@@ -41,10 +47,8 @@ fr2 = fractions.Fraction(n3,n4)
 
 valor_fracao = condicional(operacao)
 
-
 numerador = valor_fracao.numerator
 denominador = valor_fracao.denominator
-
 
 def algoritmo_euclides(numerador, denominador):
         
@@ -68,7 +72,6 @@ def verificar_primo(num):
 
 numerador_primo = verificar_primo(numerador)
 denominador_primo = verificar_primo(denominador)
-
 
 if numerador_primo == True or denominador_primo == True:
     resultado = (valor_fracao)   
